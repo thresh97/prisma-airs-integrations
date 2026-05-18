@@ -13,7 +13,7 @@ if [[ -f "$PROJECT_DIR/.env" ]]; then
 fi
 
 # Prisma AIRS API Configuration
-PRISMA_AIRS_API_URL="https://service.api.aisecurity.paloaltonetworks.com/v1/scan/sync/request"
+PRISMA_AIRS_API_URL="${PRISMA_AIRS_API_URL:-https://service.api.aisecurity.paloaltonetworks.com/v1/scan/sync/request}"
 PRISMA_AIRS_API_KEY="${PRISMA_AIRS_API_KEY:-}"
 PRISMA_AIRS_PROFILE_NAME="${PRISMA_AIRS_PROFILE_NAME:-}"
 PRISMA_AIRS_PROFILE_ID="${PRISMA_AIRS_PROFILE_ID:-}"
