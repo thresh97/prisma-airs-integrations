@@ -1,0 +1,63 @@
+{
+  "hooksConfig": {
+    "enabled": true,
+    "disabled": [],
+    "notifications": true
+  },
+  "hooks": {
+    "BeforeAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .tabnine/hooks/scan_before_agent.sh",
+            "name": "prisma-airs-prompt-scan",
+            "description": "Scan user prompts for injection and policy violations",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "BeforeTool": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .tabnine/hooks/scan_before_tool.sh",
+            "name": "prisma-airs-tool-input-scan",
+            "description": "Scan tool arguments before execution",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "AfterTool": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .tabnine/hooks/scan_after_tool.sh",
+            "name": "prisma-airs-tool-output-scan",
+            "description": "Scan tool results for sensitive data and DLP violations",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .tabnine/hooks/scan_after_agent.sh",
+            "name": "prisma-airs-response-scan",
+            "description": "Scan agent responses for policy violations",
+            "timeout": 5000
+          }
+        ]
+      }
+    ]
+  }
+}
